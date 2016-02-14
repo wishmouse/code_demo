@@ -2,13 +2,13 @@
 
 ## Intro 
 
-Today we'll walk through the staeps of a simple full-stack JavaScript app.
+Today we'll walk through the steps of a simple full-stack JavaScript app.
 
 Clone this repo and cd into it. Run `npm init -y` to create a package.json.
 
 ## Release 0: Static file server.
 
-1. Create an index.js file in th root and a `static` folder and `static/index.html` with some basic content. 
+1. Create an index.js file in th root and a `static` folder and `static/index.html` with some basic content. This will be your server. 
 1. Install `express` locally. Require express into index.js and follow the instructions [here](http://www.fullstacktraining.com/articles/how-to-serve-static-files-with-express) to set up a basic server for your file.
 
 
@@ -21,7 +21,20 @@ Clone this repo and cd into it. Run `npm init -y` to create a package.json.
 
 ## Release 2: Browserified client-side JavaScript.
 
-1. Create a `src/` folder in root.
+1. Create a `src/` folder in root (another common name is `lib/`).
 1. Now write the same client-side javascript in Release 1 with node-style requires (install and require JQuery locallly). Place it in `src/index.js`. 
-1. Use browserify to transform it into `bundle.js` and adjust your script tags (delete the jquery cdn).
+1. Use browserify to transform it into `static/bundle.js` and adjust your script tags (delete the jquery cdn).
+
+## Release 3: An JSON API server
+
+Now we'll adjust your express server (`./index.js`) to serve a JSON array.
+
+1. create a REST route `/api/v1/students` that listens for GET requests to your server and responds with an array of classmate names.
+
+Hint: `res.json`
+
+navigate your browser to localhost:[PORT]/api/v1/students to see the response in the browser.. 
+
+
+
 
