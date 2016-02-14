@@ -23,17 +23,24 @@ Clone this repo and cd into it. Run `npm init -y` to create a package.json.
 
 1. Create a `src/` folder in root (another common name is `lib/`).
 1. Now write the same client-side javascript in Release 1 with node-style requires (install and require JQuery locallly). Place it in `src/index.js`. 
-1. Use browserify to transform it into `static/bundle.js` and adjust your script tags (delete the jquery cdn).
+1. Use browserify to transform it into `static/bundle.js` and adjust your script tags (delete the jquery cdn script tag).
 
-## Release 3: An JSON API server
+## Release 3: Add a JSON API to your server
 
 Now we'll adjust your express server (`./index.js`) to serve a JSON array.
 
-1. create a REST route `/api/v1/students` that listens for GET requests to your server and responds with an array of classmate names.
+1. create a REST route `/api/v1/students` that listens for GET requests in your **your server** and responds with an array of classmate names.
 
-Hint: `res.json`
+Hint: `res.json`.
 
-navigate your browser to localhost:[PORT]/api/v1/students to see the response in the browser.. 
+Navigate your browser to localhost:[PORT]/api/v1/students to see the response in the browser, or use Postman to do the same.
+
+## Release 4: Client-server messaging with ajax
+
+Add a button to your html. In your **client-side** JavaScript setup an event listener on the button and executes an ajax GET request to **server** `localhost:[PORT]/api/vi/students`
+
+Write some view code that displays the results of the server response in a list. 
+
 
 
 
