@@ -27,7 +27,7 @@ Clone this repo and cd into it. Run `npm init -y` to create a package.json.
 
 ## Release 3: Add a JSON API to your server
 
-Now we'll adjust your express server (`./index.js`) to serve a JSON array.
+Now we'll adjust your express server (`./server.js`) to serve a JSON array.
 
 1. create a REST route `/api/v1/students` that listens for GET requests in your **your server** and responds with an array of classmate names.
 
@@ -72,6 +72,36 @@ At the moment our server just serves data defined in our server and held jn memo
 1. db.json should have a key "students" the value of which is an array of student names.
 1. Use `fs.readFile` to retrieve the db.json and the students *when the clientrequests them* (inside the `app.get('/api/v1/students',`  callback).
 
+
+## Release 7: Test-driven
+
+Refer to [super-duper-browser](https://github.com/kakapo-2016/super-duper/tree/es5-tape/test) for an example of how to set up a server tests.
+
+1. Create a folder `test/` and a file `test/api-tests.js`.
+1. Install [supertest](https://www.npmjs.com/package/supertest) `npm install tape supertest --save-dev`
+1. You will need to export the app in server.js and do the app.listen() in another file. This file will be the entry point for your server.
+1. Adjust the "serve" script in package.json so that points to the right file.
+1. In `test/api-test.js require supertest and your server:
+
+```js
+var test = require('tape')
+var server = require('../server')
+var request = require('supertest')
+```
+
+Follow the example in [super-duper] to write a test for your existing route `api/v1/students. 
+
+Remember:
+
+1. Arrange: setup your fake data and expected results.
+2. Action: make a get request to your JSON API using supertest (request).
+2. Assert: does the repsonse match what you expect? 
+
+Because the app is so simple at this point this will feel superfluous. Just get used to the practice of setting up a test.
+
+Now right a very similar test in your `api-test.js` but for teachers rather than students `api/v1/teachers`.
+
+make the test pass  coding another route in `server.js`.
 
 
 
