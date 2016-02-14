@@ -39,7 +39,9 @@ Navigate your browser to localhost:[PORT]/api/v1/students to see the response in
 
 Add a button to your html. In your **client-side** JavaScript setup an event listener on the button and executes an ajax GET request to **server** `localhost:[PORT]/api/vi/students`
 
-Write some view code that displays the results of the server response in a list. 
+Write some view code that displays the results of the server response in a list (time box this). 
+
+Hint: you may want to add the Jquery cdn script tag back into your html. This will allow you to paste you jquery code into the browser console to debug it. 
 
 ## Release 5: Finesse
 
@@ -48,7 +50,7 @@ Now we're going to set things up so that we don't have to keep restarting the se
 1. Install [node-dev](https://www.npmjs.com/package/node-dev) and [watchify](https://www.npmjs.com/package/watchify) with `npm install watchify node-dev --save-dev`
 1. Create two scripts in your package.json: "serve" and "watch-client". 
 1. In "serve" add "node-dev [your server]"
-1. In "watch-client" add "watchify [your server].js -o [your bundle].js -dv" 
+1. In "watch-client" add "watchify src/index.js -o client/bundle.js -dv" 
 
 Now you should be able to run `npm run serve` in one terminal and `npm run wach-client` in another. When you change the your client/app.js it will be automatically re-bundled (you will still need to re-start the server to re-serve the fresh bundle.js). 
 
@@ -60,4 +62,22 @@ Background:
  * [Task Automation with npm run](http://substack.net/task_automation_with_npm_run)
 
  * [Browserify handbook](https://github.com/substack/browserify-handbook#watchify)
+
+
+## Release 6: File-system persistance
+
+At the moment our server just serves data defined in our server and held jn memory. Let's use the file system to persist our data.
+
+1. Create a directory `data/` and a file `data/db.json`
+1. db.json should have a key "students" the value of which is an array of student names.
+1. Use `fs.readFile` to retrieve the db.json and the students *when the clientrequests them* (inside the `app.get('/api/v1/students',`  callback).
+
+
+
+
+
+
+
+
+
 
