@@ -79,8 +79,8 @@ Refer to [super-duper-browser](https://github.com/kakapo-2016/super-duper/tree/e
 
 1. Create a folder `test/` and a file `test/api-tests.js`.
 1. Install [supertest](https://www.npmjs.com/package/supertest) `npm install tape supertest --save-dev`
-1. You will need to export the app in server.js and do the app.listen() in another file. This file will be the entry point for your server.
-1. Adjust the "serve" script in package.json so that points to the right file.
+1. You will need to export the app in server.js. Create a new file `index.js and require your server app into it. Setup the app.listen() in index.js. This file will be the entry point for your server.
+1. Adjust the "serve" script in package.json so that points to `index.js`.
 1. In `test/api-test.js require supertest and your server:
 
 ```js
