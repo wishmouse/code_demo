@@ -103,6 +103,24 @@ Now right a very similar test in your `api-test.js` but for teachers rather than
 
 make the test pass  coding another route in `server.js`.
 
+Finally add a test for retrieving a student by id. You may use the index in the array of students or you may use an array of objects where each object has an `id` property. 
+
+The route you are testing will look like this `/api/v1/students/:id`. Make the test pass. 
+
+
+## Release 8: Local networking.
+
+
+Now we'll split it the server.js into 2 and introduce an external API. In your pair decide who will serve the teachers and who will server the students. 
+
+1. Add and commit your changes and push them to the repo.
+1. One person will clone the repo and branch off the pair's branch.
+1. Both of you will need to find your own ip address on the local network
+1. Setup your server's so that one of you has the teachers and the other the students in your db.json.
+1. When a server recieves a GET for `/users` it will make a GET to your partner's server and respond to the client with both teachers and students.  
+
+
+
 
 
 
