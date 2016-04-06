@@ -6,6 +6,9 @@ Today we'll walk through the steps of a simple full-stack JavaScript app.
 
 What it will look like is an application which shows us everyone who is in our cohort / school.
 It might also show us details on a particular student.
+
+![](app_example.png)
+
 We'll do this by build in a server which does 2 things: 
  - provides an API which
  - serves client-side pages (html, css, bundled js) which talks to the server
