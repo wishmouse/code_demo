@@ -66,9 +66,8 @@ Have the page automatically request the current students data, then renderer tho
 
 You should see all students rendered on the page.
 
-Stretch - add a listener to each student, so that when clicked the view is changed to just that student record (perhaps with more detail, and a larger photo). You might like to include another RESTful route for practice, to fetch that specific student (e.g. `api/v1/students/5`)
-
-Add a button to your html. In your **client-side** JavaScript setup an event listener on the button and executes an ajax GET request to **server** `localhost:[PORT]/api/vi/students` (you can do this with JQuery, superagent, xhr, etc.)
+Add a listener to each student, so that when clicked the view is changed to just that student record (perhaps with more detail, and a larger photo). 
+TDD out another RESTful route to fetch that specific student (e.g. `api/v1/students/5`).
 
 
 ## Release 4: Finesse

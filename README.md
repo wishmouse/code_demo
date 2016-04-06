@@ -94,8 +94,6 @@ You should see all students rendered on the page.
 
 Stretch - add a listener to each student, so that when clicked the view is changed to just that student record (perhaps with more detail, and a larger photo). You might like to include another RESTful route for practice, to fetch that specific student (e.g. `api/v1/students/5`)
 
-Add a button to your html. In your **client-side** JavaScript setup an event listener on the button and executes an ajax GET request to **server** `localhost:[PORT]/api/vi/students` (you can do this with JQuery, superagent, xhr, etc.)
-
 
 ## Release 4: Finesse
 
@@ -151,9 +149,9 @@ Remember:
 
 Because the app is so simple at this point this will feel superfluous. Just get used to the practice of setting up a test.
 
-Now right a very similar test in your `api-test.js` but for teachers rather than students `api/v1/teachers`.
+Now write a very similar test in your `api-test.js` but for teachers rather than students `api/v1/teachers`.
 
-make the test pass  coding another route in `server.js`.
+Make the test pass coding another route in `server.js`.
 
 Finally add a test for retrieving a student by id. You may use the index in the array of students or you may use an array of objects where each object has an `id` property.
 
