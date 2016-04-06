@@ -9,7 +9,8 @@ Clone this repo and cd into it. Run `npm init -y` to create a package.json.
 ## Release 0: Static file server.
 
 1. Create an server.js file in th root and a `client` folder and `client/index.html` with some basic content. This will be your server.
-1. Install `express` locally. Require express into index.js and [follow the instructions](http://www.fullstacktraining.com/articles/how-to-serve-static-files-with-express) to set up a basic server for your file.
+1. Install `express` locally. Require express into server.js . Here's a minimal setup example : http://expressjs.com/en/starter/hello-world.html
+1. Add a line which tells express to serve static files http://expressjs.com/en/starter/static-files.html
 
 
 ## Release 1: Client-side JavaScript
@@ -22,7 +23,7 @@ Clone this repo and cd into it. Run `npm init -y` to create a package.json.
 ## Release 2: Browserified client-side JavaScript.
 
 1. Create a `src/` folder in root (another common name is `lib/`).
-1. Now write the same client-side javascript in Release 1 with node-style requires (install and require JQuery locallly). Place it in `src/index.js`.
+1. Now write the same client-side javascript in Release 1 with node-style requires (install and require your request library of choice - superagent, xhr, jquery). Place it in `src/index.js`.
 1. Use browserify to transform it into `client/bundle.js` and adjust your script tags (delete the jquery cdn script tag).
 
 ## Release 3: Add a JSON API to your server
@@ -41,7 +42,7 @@ Add a button to your html. In your **client-side** JavaScript setup an event lis
 
 Write some view code that displays the results of the server response in a list (time box this).
 
-Hint: you may want to add the Jquery cdn script tag back into your html. This will allow you to paste you jquery code into the browser console to debug it.
+Hint: if you're using JQuery you may want to add the Jquery cdn script tag back into your html. This will allow you to paste you jquery code into the browser console to debug it.
 
 ## Release 5: Finesse
 
@@ -124,14 +125,13 @@ Now we'll split it the server.js into 2 and introduce an external API. In your p
 
 ## Resources
 
-Number | Name
--------|-------------------
-1.     | [Server setup](http://www.fullstacktraining.com/articles/how-to-serve-static-files-with-express)
-2.     | [Task Automation with npm run](http://substack.net/task_automation_with_npm_run)
-3.     | [Browserify handbook](https://github.com/substack/browserify-handbook#watchify)
-4.     | [supertest](https://www.npmjs.com/package/supertest)
-5.     | [Jquery from a cdn](https://developers.google.com/speed/libraries/)
-6.     | [Full stack](http://www.laurencegellert.com/2012/08/what-is-a-full-stack-developer/)
+Number| Name
+------|-------------------
+.     | [Task Automation with npm run](http://substack.net/task_automation_with_npm_run)
+.     | [Browserify handbook](https://github.com/substack/browserify-handbook#watchify)
+.     | [supertest](https://www.npmjs.com/package/supertest)
+.     | [Jquery from a cdn](https://developers.google.com/speed/libraries/)
+.     | [Full stack](http://www.laurencegellert.com/2012/08/what-is-a-full-stack-developer/)
 
 
 
