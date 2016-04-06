@@ -1,16 +1,5 @@
 # Full-stack
 
-## Concepts
-
-Number | Name
--------|-------------------
-1.     | [Server setup](http://www.fullstacktraining.com/articles/how-to-serve-static-files-with-express)
-2.     | [Task Automation with npm run](http://substack.net/task_automation_with_npm_run)
-3.     | [Browserify handbook](https://github.com/substack/browserify-handbook#watchify)
-4.     | [supertest](https://www.npmjs.com/package/supertest)
-5.     | [Jquery from a cdn](https://developers.google.com/speed/libraries/)
-6.     | [Full stack](http://www.laurencegellert.com/2012/08/what-is-a-full-stack-developer/)
-
 ## Intro
 
 Today we'll walk through the steps of a simple full-stack JavaScript app.
@@ -130,6 +119,19 @@ Now we'll split it the server.js into 2 and introduce an external API. In your p
 1. Setup your server's so that one of you has the teachers and the other the students in your db.json.
 1. When a server recieves a GET for `/users` it will make a GET to your partner's server and respond to the client with both teachers and students.
 
+---
+
+
+## Resources
+
+Number | Name
+-------|-------------------
+1.     | [Server setup](http://www.fullstacktraining.com/articles/how-to-serve-static-files-with-express)
+2.     | [Task Automation with npm run](http://substack.net/task_automation_with_npm_run)
+3.     | [Browserify handbook](https://github.com/substack/browserify-handbook#watchify)
+4.     | [supertest](https://www.npmjs.com/package/supertest)
+5.     | [Jquery from a cdn](https://developers.google.com/speed/libraries/)
+6.     | [Full stack](http://www.laurencegellert.com/2012/08/what-is-a-full-stack-developer/)
 
 
 
