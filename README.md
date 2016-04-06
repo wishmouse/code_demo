@@ -37,7 +37,7 @@ Navigate your browser to localhost:[PORT]/api/v1/students to see the response in
 
 ## Release 4: Client-server messaging with ajax
 
-Add a button to your html. In your **client-side** JavaScript setup an event listener on the button and executes an ajax GET request to **server** `localhost:[PORT]/api/vi/students`
+Add a button to your html. In your **client-side** JavaScript setup an event listener on the button and executes an ajax GET request to **server** `localhost:[PORT]/api/vi/students` (you can do this with JQuery, superagent, xhr, etc.)
 
 Write some view code that displays the results of the server response in a list (time box this).
 
