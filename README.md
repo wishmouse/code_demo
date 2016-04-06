@@ -4,6 +4,15 @@
 
 Today we'll walk through the steps of a simple full-stack JavaScript app.
 
+What it will look like is an application which shows us everyone who is in our cohort / school.
+It might also show us details on a particular student.
+We'll do this by build in a server which does 2 things: 
+ - provides an API which
+ - serves client-side pages (html, css, bundled js) which talks to the server
+
+The client-side page will be loaded, then immediately ask for some data from the API you've made.
+The results will be rendered into the page using a renderer bundled into your client-side JS.
+
 Clone this repo and cd into it. Run `npm init -y` to create a package.json.
 
 ## Release 0: Static file server.
