@@ -9,54 +9,92 @@ It might also show us details on a particular student.
 
 ![](app_example.png)
 
-We'll do this by build in a server which does 2 things: 
- - provides an API which
- - serves client-side pages (html, css, bundled js) which talks to the server
+We'll do this by building a server which does 2 things: 
+ - provides an API
+ - serves client-side pages (html, css, bundled js)
 
-The client-side page will be loaded, then immediately ask for some data from the API you've made.
+The client-side page will be loaded, then immediately ask for some data from the API.
 The results will be rendered into the page using a renderer bundled into your client-side JS.
 
-Clone this repo and cd into it. Run `npm init -y` to create a package.json.
+**Challenge** - if you think you can do this challenge without guidance, try not following the steps. 
+
 
 ## Release 0: Static file server.
 
-1. Create an server.js file in th root and a `client` folder and `client/index.html` with some basic content. This will be your server.
-1. Install `express` locally. Require express into server.js . Here's a minimal setup example : http://expressjs.com/en/starter/hello-world.html
-1. Add a line which tells express to serve static files http://expressjs.com/en/starter/static-files.html
+Make a basic setup which can serve up an `index.html` file, making sure we keep the files we want to give to the client in a `client` folder.
+
+1. Clone this repo and cd into it. Run `npm init -y` to create a package.json.
+1. Create an `server.js` file in the root of the project. This will be your server. 
+1. Create a `client/` folder for client-side files we'll serve. Put an `index.html` with some basic content in this folder.
+1. Install `express` so you can require it in your `server.js`. 
+  - Here's a minimal setup example : http://expressjs.com/en/starter/hello-world.html
+1. Tell the express server which static files you'd like it to serve. 
+  - Hint: http://expressjs.com/en/starter/static-files.html
+
+Spin up your server and make sure you can use it to get it to serve your `index.html` file.
 
 
 ## Release 1: Client-side JavaScript
 
-1. Add a `<script>` tag that imports [Jquery from a cdn](https://developers.google.com/speed/libraries/) into the `<head>` of your index.html.
-1. Create a JavaScript file `client/app.js`. Import it into your html by  adding it to the `<head>` just below Jquery.
-1. Write some basic Jquery DOM manipulation in app.js. You will need to need to use Jquery's `$( document ).ready` or similar to make sure your JavaScript executes after the page is loaded.
-1. Restart your server and sever your client-side Javascript.
+Set up client side javascript - you'll need to set up Browserify.
+We're going to keep our files nice and seperate, have our source dev file called `src/index.js` and have Browserify ouput to `client/app.js`.
 
-## Release 2: Browserified client-side JavaScript.
+_Bonus points: minify your bundled js_
 
-1. Create a `src/` folder in root (another common name is `lib/`).
-1. Now write the same client-side javascript in Release 1 with node-style requires (install and require your request library of choice - superagent, xhr, jquery). Place it in `src/index.js`.
-1. Use browserify to transform it into `client/bundle.js` and adjust your script tags (delete the jquery cdn script tag).
+1. Make a file in `src/index.js`
+1. Set up Browserify to bundle this file to a file `client/app.js`
+1. Include the bundled file in your `client/index.html`
+  - you want the script to run after the whole `index.html` has been loaded - do this by putting the script tag at the bottom of the file, or if you put your script file in the head, and add some [document ready checks](https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded).
+1. Add some simple JS that will let you determine whether the bundled JS has made it into the `index.html`
 
-## Release 3: Add a JSON API to your server
+Reload your `index.html` and prove that your client-side JS is in place and working.
 
-Now we'll adjust your express server (`./server.js`) to serve a JSON array.
 
-1. create a REST route `/api/v1/students` that listens for GET requests in your **your server** and responds with an array of classmate names.
+> Do 2a / 2b in either order.
 
-Hint: `res.json()`.
 
-Navigate your browser to localhost:[PORT]/api/v1/students to see the response in the browser, or use Postman to do the same.
+## Release 2a: Client-side templating
 
-## Release 4: Client-server messaging with ajax
+Choose a templating language of preference and install it so that it work in you client-side js.
+
+1. Check out the set-up of either handlebars, or hyperscript from an earlier challenge.
+1. Put some view code in a `views/` folder, then include that and use it in your `src/index.js`
+  - put some hard-coded student data in your `src/index.js` just to prove you can get a template working
+  - pause to plan the structure of data you expect your students API should provide
+  - if you're using handlebars, make sure you check how you're bundling
+
+Reload your `index.html` and prove your templating is working.
+You should be be able to see at least 2 student rendered on the page
+
+
+## Release 2b: Add a JSON API to your server
+
+Adjust your express server (`./server.js`) to serve a JSON array using a RESTful route for your student resources.
+
+1. Create a REST route `/api/v1/sutdents` that listens for GET requests in **your server**
+1. Have it respond with a hard-coded array of classmate names in JSON format
+  - Hint: check out `res.json()`
+
+Navigate your browser to localhost:[PORT]/api/v1/students in you browser, or using Postman to check the api is working
+
+
+## Release 3: Client-server messaging
+
+Link your Client-side js to your API.
+Have the page automatically request the current students data, then renderer those results to the page.
+
+1. Install your favourite request module in `src/index.js`
+1. Remove your hard coded data from this file and have your request get the data for you
+1. In the request callback, have render the result data using your client-side template setup
+
+You should see all students rendered on the page.
+
+Stretch - add a listener to each student, so that when clicked the view is changed to just that student record (perhaps with more detail, and a larger photo). You might like to include another RESTful route for practice, to fetch that specific student (e.g. `api/v1/students/5`)
 
 Add a button to your html. In your **client-side** JavaScript setup an event listener on the button and executes an ajax GET request to **server** `localhost:[PORT]/api/vi/students` (you can do this with JQuery, superagent, xhr, etc.)
 
-Write some view code that displays the results of the server response in a list (time box this).
 
-Hint: if you're using JQuery you may want to add the Jquery cdn script tag back into your html. This will allow you to paste you jquery code into the browser console to debug it.
-
-## Release 5: Finesse
+## Release 4: Finesse
 
 Now we're going to set things up so that we don't have to keep restarting the server or re-bundling our client JavaScript each time we make a change.
 
@@ -79,7 +117,7 @@ Background:
 
 ## Release 6: File-system persistance
 
-At the moment our server just serves data defined in our server and held jn memory. Let's use the file system to persist our data.
+At the moment our server just serves data defined in our server and held in memory. Let's use the file system to persist our data.
 
 1. Create a directory `data/` and a file `data/db.json`
 1. db.json should have a key "students" the value of which is an array of student names.
@@ -87,8 +125,6 @@ At the moment our server just serves data defined in our server and held jn memo
 
 
 ## Release 7: Test-driven
-
-Refer to [super-duper-browser](https://github.com/kakapo-2016/super-duper/tree/es5-tape/test) for an example of how to set up a server tests.
 
 1. Create a folder `test/` and a file `test/api-tests.js`.
 1. Install [supertest](https://www.npmjs.com/package/supertest) `npm install tape supertest --save-dev`
@@ -102,13 +138,11 @@ var server = require('../server')
 var request = require('supertest')
 ```
 
-Follow the example in [super-duper] to write a test for your existing route `api/v1/students.
-
 Remember:
 
 1. Arrange: setup your fake data and expected results.
-2. Action: make a get request to your JSON API using supertest (request).
-2. Assert: does the repsonse match what you expect?
+1. Action: make a get request to your JSON API using supertest (request).
+1. Assert: does the repsonse match what you expect?
 
 Because the app is so simple at this point this will feel superfluous. Just get used to the practice of setting up a test.
 
@@ -121,16 +155,21 @@ Finally add a test for retrieving a student by id. You may use the index in the 
 The route you are testing will look like this `/api/v1/students/:id`. Make the test pass.
 
 
-## Release 8: Local networking.
+## Release 8a: Queryable 
+
+Teach your API to respond to query params like `/api/vi/students?nationality=new+zealander` and return only matching results
 
 
-Now we'll split it the server.js into 2 and introduce an external API. In your pair decide who will serve the teachers and who will server the students.
+## Release 8b: Local networking.
+
+Split it the server.js into 2 and introduce an external API. In your pair decide who will serve the teachers and who will server the students.
 
 1. Add and commit your changes and push them to the repo.
 1. One person will clone the repo and branch off the pair's branch.
 1. Both of you will need to find your own ip address on the local network
 1. Setup your server's so that one of you has the teachers and the other the students in your db.json.
 1. When a server recieves a GET for `/users` it will make a GET to your partner's server and respond to the client with both teachers and students.
+
 
 ---
 
