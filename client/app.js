@@ -160,8 +160,8 @@ function wrappy(n,r){function e(){for(var r=new Array(arguments.length),e=0;e<r.
 function extend(){for(var r={},e=0;e<arguments.length;e++){var t=arguments[e];for(var n in t)hasOwnProperty.call(t,n)&&(r[n]=t[n])}return r}module.exports=extend;var hasOwnProperty=Object.prototype.hasOwnProperty;
 
 },{}],47:[function(require,module,exports){
-function hyperscript(e){var r=h("div#page",h("div#header",h("h1.classy","EDA: The Roster",{style:{"background-color":"#22f"}})),h("div#menu",{style:{"background-color":"#2f2"}}),h("h2","EDA Students",{style:{"background-color":"#f22"}}),e.students.map(function(e){return h("p",e.name)}),h("img",{src:" http://www.nasa.gov/sites/default/files/iss_1_0.jpg"}));return r}var h=require("hyperscript");module.exports=hyperscript;
+function hyperscript(r){var e=h("div#page",h("div#header",h("h1.classy","EDA: The Roster",{style:{"background-color":"#22f"}})),h("div#menu",{style:{"background-color":"#2f2"}}),h("h2","EDA Students",{style:{"background-color":"#f22"}}),r.students.map(function(r){return h("p",r.name,h("img",{src:r.pic}))}));return e}var h=require("hyperscript");module.exports=hyperscript;
 
 },{"hyperscript":11}],48:[function(require,module,exports){
-var hyperscript=require("./hyperscript"),get=require("simple-get");get.concat("http://localhost:3000/api/v1/students",function(r,e,t){if(r)throw r;var p=JSON.parse(t);p=JSON.stringify(p);var i=hyperscript(JSON.parse(p));document.body.appendChild(i)});
+var hyperscript=require("./hyperscript"),get=require("simple-get");get.concat("http://localhost:3000/api/v1/students",function(e,t,r){if(e)throw e;var p=JSON.parse(r),i=hyperscript(p);document.body.appendChild(i)});
 },{"./hyperscript":47,"simple-get":34}]},{},[48]);
