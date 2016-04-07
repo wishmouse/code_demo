@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "build": "browserify src/index.js -g uglifyify > client/app.js"
+    "build": "browserify src/index.js -g uglifyify > client/app.js",
+    "serve":"node-dev server.js",
+    "watch-client":  "watchify src/index.js -o client/bundle.js -dv"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -17,6 +19,9 @@
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
     "simple-get": "^2.0.0",
-    "uglifyify": "^3.0.1"
+    "uglifyify": "^3.0.1",
+    "watchify": "^3.7.0",
+    "node-dev": "^3.1.0"
+
   }
 }
