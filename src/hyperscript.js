@@ -5,7 +5,7 @@ function hyperscript(obj) {
   var domElement =
   h('div#page',
     h('div#header',
-      h('h1.classy', "your favourite biscuit?", { style: {'background-color': 'white'} })
+      h('h1.classy', "your favourite biscuit?", { style: {'background-color': 'blue'} })
     ),
      obj.students.map(function(x){
       return h('p', x.name)

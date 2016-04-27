@@ -8,3 +8,4 @@ get.concat('http://localhost:3000/api/v1/students', function (err,res,data){
   var content = hyperscript(obj);
   document.body.appendChild(content);
 })
+

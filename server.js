@@ -3,7 +3,7 @@ var app = express()
 var path = require('path')
 
 app.use(express.static('client'))
-var dreamTeam = {students: [{name: "Tim Tams", id: 0}]}
+var dreamTeam = {students: [{name: "gingernut", id: 0}]}
 
 // app.get('/', function (req,res){
 //   res.sendFile(path.join(__dirname+ '/client/index.html'))
